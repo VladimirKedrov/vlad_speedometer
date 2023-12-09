@@ -6,6 +6,18 @@ skins = {}
 overwriteAlpha = false
 scriptReady = false
 
+vehclass = 0
+vehdisplayname = 0
+pedInVehicleSeat = 0
+
+local vehmodel = 0
+local engineHealth = 0
+local OilLevel = 0
+local FuelLevel = 0
+local _,lightson,highbeams = 0, 0, 0
+local vehindicators = 0
+local MaxFuelLevel = 0
+
 local OverriddenTextures = {}
 
 function addSkin(skin)
