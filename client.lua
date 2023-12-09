@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 --SETTINGS--
 showFuelGauge = true -- use fuel gauge?
 skins = {}
@@ -149,12 +150,10 @@ Citizen.CreateThread(function()
 		inVehicle = IsPedInAnyVehicle(PlayerPed, false)
 		HasTextureDictLoaded = HasStreamedTextureDictLoaded(cst.ytdName)
 		if inVehicleAtGetin or inVehicle then
-			veh = GetVehiclePedIsUsing(PlayerPed)
-			DoesCurrentVehExist = (DoesEntityExist(veh) and not IsEntityDead(veh))
 			if DoesCurrentVehExist then 
 				vehclass = GetVehicleClass(veh)
 				vehmodel = GetEntityModel(veh)
-				engineHealth = GetVehicleEngineHealth(veh)
+				engineHealth = GetVehicleEngineHealth(veh) or 0
 				OilLevel = GetVehicleOilLevel(veh)
 				FuelLevel = GetVehicleFuelLevel(veh)
 				_,lightson,highbeams = GetVehicleLightsState(veh)
@@ -164,7 +163,6 @@ Citizen.CreateThread(function()
 				MaxFuelLevel = GetVehicleHandlingFloat(veh, "CHandlingData", "fPetrolTankVolume")
 			end
 		else
-			veh = nil
 			DoesCurrentVehExist = false
 			pedInVehicleSeat = nil
 		end
@@ -175,6 +173,8 @@ Citizen.CreateThread(function()
 		Wait(10)
 	until scriptReady
 	while true do
+		veh = GetVehiclePedIsUsing(PlayerPed)
+		DoesCurrentVehExist = (DoesEntityExist(veh) and not IsEntityDead(veh))
 		degree, step = 0-(cst.speedDecrease or 0), cst.RotStep
 		if (DoesCurrentVehExist) then 
 			RPM = GetVehicleCurrentRpm(veh)
@@ -361,6 +361,10 @@ Citizen.CreateThread(function()
 						DrawSprite(cst.ytdName, "speed_digits_9", cst.centerCoords[1]+cst.Speed1Loc[1],cst.centerCoords[2]+cst.Speed1Loc[2],cst.Speed1Loc[3],cst.Speed1Loc[4], 0.0, 255, 255, 255, curAlpha)
 					end
 					speedTable=nil
+				end
+
+				if cst.RevLight and (RPM > 0.90 and math.floor(GetGameTimer() / 100) % 2 == 0) then
+					DrawSprite(cst.ytdName, "rev_light", cst.centerCoords[1]+cst.RevLight[1],cst.centerCoords[2]+cst.RevLight[2],cst.RevLight[3],cst.RevLight[4], 0.0, 255, 255, 255, curAlpha)
 				end
 			end
 		end
