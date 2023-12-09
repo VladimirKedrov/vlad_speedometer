@@ -174,7 +174,7 @@ Citizen.CreateThread(function()
 	until scriptReady
 	while true do
 		veh = GetVehiclePedIsUsing(PlayerPed)
-		DoesCurrentVehExist = (DoesEntityExist(veh) and not IsEntityDead(veh))
+		DoesCurrentVehExist = (veh ~= 0 and not IsEntityDead(veh))
 		degree, step = 0-(cst.speedDecrease or 0), cst.RotStep
 		if (DoesCurrentVehExist) then 
 			RPM = GetVehicleCurrentRpm(veh)
