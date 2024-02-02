@@ -14,6 +14,6 @@ client_scripts {
 	"skins/*.lua",
 }
 
-exports {
-	"toggleSpeedo",
+export {
+	"toggleSpeedo"
 }

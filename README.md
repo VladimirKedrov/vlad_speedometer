@@ -2,6 +2,8 @@
 Forked from https://github.com/Beyond-Redline-Racing/speedom
 , And that is forked from https://github.com/Blumlaut/SexySpeedometer-FiveM.
 
+### support discord: https://discord.gg/4MfzRfR7zU
+
 ### Description:
 Tachometer, Current gear and KM/H or M/PH on screen UI.
      
