@@ -81,10 +81,6 @@ end
 
 exports('ToggleSpeedoExternal', function(state)
 	showSpeedo = state
-	if debug then
-	print('state')
-	print(state)
-	end
 end)
 
 local textureTypes = {
@@ -200,8 +196,13 @@ Citizen.CreateThread(function()
 		if (DoesCurrentVehExist) then 
 			RPM = GetVehicleCurrentRpm(veh)
 			if vlad_gears_compat then
-				gear = exports.vlad_gears.ReportDisplayGearInteger() + 1
-				if gear == -1 then gear = 0 end
+				gear = exports.vlad_gears.ReportDisplayGearInteger(veh)
+				if gear == 'not_manual' then
+					gear = GetVehicleCurrentGear(veh) + 1
+					if gear == 1 then gear = 0 end
+				else
+					gear = gear + 1
+				end
 			else
 				gear = GetVehicleCurrentGear(veh) + 1
 				if gear == 1 then gear = 0 end
