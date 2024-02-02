@@ -22,11 +22,11 @@ To activate and deactivate the speedo use command "/togglespeedo"
 #### Config.VladGearsCompatability
 Controls how the script gets the current gear.\
 If true it will be read from a export contained in vlad_gears. Requires vlad_gears to be started before vlad_speedometer and running.\
-If false then current gear will be handled by CFX native GetVehicleCurrentGear()\
+If false then current gear will be handled by CFX native GetVehicleCurrentGear()
 
 #### Config.ShowSpeedometerByDefault
 Controls if the speedometer is shown automatically on vehicle entry.\
 If true the speedo will show after entering a vehicle.\
 If false the speedo will only appear after a /speedotoggle command.\
-Reccomended to false if using vlad_gears.\
+Reccomended to false if using vlad_gears.
 
