@@ -77,7 +77,6 @@ function toggleSpeedo()
 	else
 		showSpeedo = true
 	end
-	print(showSpeedo)
 end
 
 exports('ToggleSpeedoExternal', function(state)
