@@ -2,29 +2,18 @@ fx_version "adamant"
 
 games {"gta5"}
 
+version '1.0.0'
+description 'On Screen Tach/Speedometer + Current Gear display'
+
+shared_scripts {
+	'config.lua'
+}
+
 client_scripts {
 	"client.lua",
-
-	-- DONT ADD SKINS HERE, *.lua MEANS ALL .LUA FILES!!!
 	"skins/*.lua",
-
-
 }
 
 exports {
-	"getAvailableSkins",
-	"changeSkin",
-	"addSkin",
 	"toggleSpeedo",
-	"getCurrentSkin",
-	"addSkin",
-	"toggleFuelGauge",
-	"DoesSkinExist",
-	"SetOverriddenTexture",
 }
-
-ui_page('skins/initiald.html')
-files({
-    'skins/initiald.html',
-    'skins/initiald.ogg'
-})
