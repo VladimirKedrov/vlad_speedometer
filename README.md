@@ -13,7 +13,7 @@
     Automatically applies the correct units depending on GTA ingame measurement system setting.
 
 ### preview image
-    
+    ![vlad_speedometer_preview_1](https://github.com/VladimirKedrov/vlad_speedometer/assets/115960462/c4be77db-4a35-4d4a-b2d5-0fc34291c746)
 
 ### toggle command
     To toggle the speedo on and off use command "/togglespeedo"
